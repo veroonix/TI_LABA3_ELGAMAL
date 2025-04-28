@@ -261,10 +261,11 @@ namespace lab_3
         private void decipher_button_Click(object sender, EventArgs e)
         {
             lastButtonClicked = "decipher_button";
-            int p = int.Parse(pInput.Text);
-            
-            int x = int.Parse(xInput.Text);
-            if (IsPrime(x) && IsCorrectX(x, p))
+            int p;
+            int.TryParse(pInput.Text, out p);
+            int x;
+            int.TryParse(xInput.Text, out x);
+            if (IsPrime(p) && IsCorrectX(x, p))
             {
                 List<int> output = El_Gamal.Decipher(x, p);
 
